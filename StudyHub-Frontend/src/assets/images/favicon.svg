@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg viewBox="55.702 0 29.349 32" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="logo-gradient-2" x1="14.643" y1="-.108" x2="14.643" y2="31.813" gradientUnits="userSpaceOnUse" gradientTransform="matrix(1, 0, 0, 1, 55.202077, 0.124892)">
+      <stop stop-color="#F28F41"/>
+      <stop offset="1" stop-color="#EB5E30"/>
+    </linearGradient>
+    <clipPath id="logo-clip">
+      <path fill="#fff" d="M0 0h143.377v32H0z"/>
+    </clipPath>
+  </defs>
+  <g clip-path="url(#logo-clip)" transform="matrix(1, 0, 0, 1, 0.624458, -0.124894)">
+    <path d="M 81.433 26.267 L 72.716 31.285 C 70.896 32.368 68.63 32.368 66.809 31.285 L 58.084 26.267 C 56.32 25.16 55.24 23.231 55.217 21.148 L 55.217 11.112 C 55.242 9.01 56.361 7.073 58.17 6.001 L 66.895 0.983 C 68.718 -0.091 70.98 -0.091 72.802 0.983 L 81.519 6.001 C 83.329 7.072 84.448 9.01 84.473 11.112 L 84.473 21.148 C 84.387 23.258 83.244 25.183 81.433 26.268 L 81.433 26.267 Z" fill="url(#logo-gradient-2)"/>
+  </g>
+  <text style="fill: rgb(255, 255, 255); font-family: Arial, sans-serif; font-size: 28px; white-space: pre;" transform="matrix(0.906381, 0, 0, 0.852281, 6.859046, 2.633695)" x="61.259" y="25.416">S</text>
+</svg>
