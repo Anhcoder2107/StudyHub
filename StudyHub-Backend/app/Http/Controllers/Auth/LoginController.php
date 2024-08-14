@@ -113,9 +113,14 @@ class LoginController extends Controller
             throw new RuntimeException('Wrong guard returned.');
         }
         return response()->json([
-            'access_token' => $token,
+            'token' => $token,
             'token_type' => 'bearer',
-            'expires_in' => $guard->factory()->getTTL() * 60
-        ]);
+            'expires_in' => $guard->factory()->getTTL() * 60,
+            'status' => '200'
+        ])
+        ->header('Authorization', $token)
+        ->header('Access-Control-Expose-Headers', 'Authorization');
     }
+
+   
 }

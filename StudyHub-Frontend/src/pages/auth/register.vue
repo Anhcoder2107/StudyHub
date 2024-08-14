@@ -16,7 +16,7 @@ export default {
 
     
     const register = () => {
-            axios.post(`http://localhost:8000/api/register`, data)
+            axios.post(`http://localhost:8000/api/auth/register`, data)
             .then(response => { 
                 if(response.status === 200) {
                     alert('Register success')

@@ -4,9 +4,12 @@ const admin = [
         component: () => import('../layouts/admin.vue'),
         children: [
             {
-                path: '',
+                path: 'home',
                 name: 'admin-home',
-                component: () => import('../pages/admin/user/index.vue')
+                component: () => import('../pages/admin/user/index.vue'),
+                meta: {
+                    auth: true
+                }
             }
         ]
     }

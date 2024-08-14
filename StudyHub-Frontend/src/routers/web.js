@@ -5,15 +5,27 @@ const web = [
         children: [
             {
                 path: '',
-                component: () => import('../pages/home/index.vue')
+                component: () => import('../pages/home/index.vue'),
+                name: 'home',
+                meta:{
+                    auth: true
+                }
             },
             {
                 path: '/login',
                 component: () => import('../pages/auth/login.vue'),
+                name: 'login',
+                meta: {
+                    auth: false
+                }
             },
             {
                 path: '/register',
                 component: () => import('../pages/auth/register.vue'),
+                name: 'register',
+                meta: {
+                    auth: false
+                }
             }
         ]
     },
@@ -23,11 +35,19 @@ const web = [
         children: [
             {
                 path: '',
-                component: () => import('../pages/home/index.vue')
+                component: () => import('../pages/home/index.vue'),
+                name: 'home-teacher',
+                meta: {
+                    auth: true,
+                    
+                }
             },
             {
                 path: 'course',
-                component: () => import('../pages/course/index.vue')
+                component: () => import('../pages/course/index.vue'),
+                meta: {
+                    auth: true
+                }
             },
             { 
                 path: '/:pathMatch(.*)*', 
@@ -42,7 +62,10 @@ const web = [
         children: [
             {
                 path: '',
-                component: () => import('../pages/home/index.vue')
+                component: () => import('../pages/home/index.vue'),
+                meta: {
+                    auth: true
+                }
             },
             { 
                 path: '/:pathMatch(.*)*', 

@@ -40,7 +40,7 @@ class RegisterController extends Controller
         $user->save();
 
         $token = $guard->login($user);
-        return $this->respondWithToken($token);
+        return $this->respondWithToken($token)->header('Authorization', $token);
 
 
         // return response()->json([
@@ -94,7 +94,8 @@ class RegisterController extends Controller
         return response()->json([
             'access_token' => $token,
             'token_type' => 'bearer',
-            'expires_in' => $guard->factory()->getTTL() * 60
+            'expires_in' => $guard->factory()->getTTL() * 60,
+            'status' => '200'
         ]);
     }
 }
