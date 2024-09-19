@@ -1,3 +1,5 @@
+
+
 const web = [
     {
         path: '/',
@@ -45,6 +47,14 @@ const web = [
             {
                 path: 'course',
                 component: () => import('../pages/course/index.vue'),
+                meta: {
+                    auth: true
+                }
+            },
+            {
+                path: 'course/show/:id',
+                component: () => import('../pages/course/show.vue'),
+                name: 'course-show',
                 meta: {
                     auth: true
                 }

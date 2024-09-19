@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Course;
 
 class CourseController extends Controller
 {
@@ -12,6 +13,8 @@ class CourseController extends Controller
     public function index()
     {
         //
+        $course = Course::all();
+        return response()->json($course);
     }
 
     /**
@@ -25,9 +28,13 @@ class CourseController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(string $id, Request $request)
     {
         //
+        if($request->user()){
+            $course = Course::find($id);
+            return response()->json($course);
+        }
     }
 
     /**

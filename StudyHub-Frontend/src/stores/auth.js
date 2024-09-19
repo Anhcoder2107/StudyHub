@@ -28,9 +28,9 @@ var auth = createAuth({
     },
     options: {
         rolesKey: 'type',
-        notFoundRedirect: {name: 'user-account'},
-        fetchData: { url: `profile`, method: 'GET', enabled: true, authType: 'bearer' },
-        refreshData: { url: `profile`, method: 'GET', enabled: true, interval: 30, authType: 'bearer' },
+        notFoundRedirect: {name: 'NotFound'},
+        fetchData: { url: `auth/profile`, method: 'GET', enabled: true, authType: 'bearer' },
+        refreshData: { url: `auth/profile`, method: 'GET', enabled: true, interval: 30, authType: 'bearer' },
         authType: "bearer",
     }
 });

@@ -14,12 +14,16 @@
     "@fortawesome/free-regular-svg-icons": "^6.6.0",
     "@fortawesome/free-solid-svg-icons": "^6.6.0",
     "@fortawesome/vue-fontawesome": "^3.0.8",
+    "@iconscout/vue-unicons": "^1.0.2",
     "@websanova/vue-auth": "^4.2.1",
     "axios": "^1.7.2",
-    "bootstrap": "^5.2.3",
-    "vue": "^3.4.31",
+    "bootstrap": "^5.3.3",
+    "bootstrap-vue": "^2.23.1",
+    "vue": "^3.5.6",
     "vue-axios": "^3.5.2",
     "vue-router": "^4.4.0",
+    "vue3-carousel": "^0.3.3",
+    "vuetify": "^3.7.1",
     "vuex": "^4.1.0"
   },
   "devDependencies": {
