@@ -10,7 +10,7 @@ class StudentCourse extends Model
     /** @use HasFactory<\Database\Factories\StudentCourseFactory> */
     use HasFactory;
 
-    protected $table = 'student_course';
+    protected $table = 'student_courses';
     protected $fillable = ['user_id', 'course_id', 'start_time', 'progress'];
 
     public function user()

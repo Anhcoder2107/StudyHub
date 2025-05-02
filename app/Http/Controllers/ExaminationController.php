@@ -29,7 +29,17 @@ class ExaminationController extends Controller
      */
     public function store(StoreExaminationRequest $request)
     {
-        //
+        $examination = Examination::create([
+            'user_id' => $request->user_id,
+            'title' => $request->title,
+            'description' => $request->description,
+            'start_time' => $request->start_time,
+            'end_time' => $request->end_time,
+            'duration' => $request->duration,
+            'max_score' => $request->max_score,
+        ]);
+
+        return response()->json($examination, 201);
     }
 
     /**
@@ -53,7 +63,17 @@ class ExaminationController extends Controller
      */
     public function update(UpdateExaminationRequest $request, Examination $examination)
     {
-        //
+        $examination->update([
+            'user_id' => $request->user_id,
+            'title' => $request->title,
+            'description' => $request->description,
+            'start_time' => $request->start_time,
+            'end_time' => $request->end_time,
+            'duration' => $request->duration,
+            'max_score' => $request->max_score,
+        ]);
+
+        return response()->json($examination, 200);
     }
 
     /**
@@ -61,6 +81,8 @@ class ExaminationController extends Controller
      */
     public function destroy(Examination $examination)
     {
-        //
+        $examination->delete();
+
+        return response()->json(null, 204);
     }
 }

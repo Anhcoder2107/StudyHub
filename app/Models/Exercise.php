@@ -10,7 +10,7 @@ class Exercise extends Model
     /** @use HasFactory<\Database\Factories\ExerciseFactory> */
     use HasFactory;
 
-    protected $table = 'exercise';
+    protected $table = 'exercises';
     protected $fillable = ['user_id', 'title', 'description', 'due_date', 'max_score'];
 
     public function user()

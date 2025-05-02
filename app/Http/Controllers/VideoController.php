@@ -29,7 +29,14 @@ class VideoController extends Controller
      */
     public function store(StoreVideoRequest $request)
     {
-        //
+        $video = Video::create([
+            'title' => $request->title,
+            'description' => $request->description,
+            'url' => $request->url,
+            'duration' => $request->duration,
+        ]);
+
+        return response()->json($video, 201);
     }
 
     /**
@@ -53,7 +60,14 @@ class VideoController extends Controller
      */
     public function update(UpdateVideoRequest $request, Video $video)
     {
-        //
+        $video->update([
+            'title' => $request->title,
+            'description' => $request->description,
+            'url' => $request->url,
+            'duration' => $request->duration,
+        ]);
+
+        return response()->json($video, 200);
     }
 
     /**
@@ -61,6 +75,8 @@ class VideoController extends Controller
      */
     public function destroy(Video $video)
     {
-        //
+        $video->delete();
+
+        return response()->json(null, 204);
     }
 }

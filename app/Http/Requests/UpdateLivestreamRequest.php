@@ -22,7 +22,14 @@ class UpdateLivestreamRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'class_id' => ['required', 'integer'],
+            'title' => ['required', 'string'],
+            'description' => ['required', 'string'],
+            'livestream_url' => ['required', 'string'],
+            'start_time' => ['required', 'date'],
+            'end_time' => ['required', 'date'],
+            'url' => ['required', 'string'],
+            'recording_url' => ['required', 'string'],
         ];
     }
 }

@@ -11,7 +11,7 @@ class Course extends Model
     use HasFactory;
 
 
-    protected $table = 'course';
+    protected $table = 'courses';
     protected $primaryKey = 'id';
     protected $fillable = ['category_id', 'user_id', 'course_name', 'course_description', 'image', 'status'];
 

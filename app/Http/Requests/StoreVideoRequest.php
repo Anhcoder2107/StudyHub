@@ -22,7 +22,29 @@ class StoreVideoRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'title' => ['required', 'string'],
+            'description' => ['required', 'string'],
+            'url' => ['required', 'string'],
+            'duration' => ['required', 'string'],
+        ];
+    }
+
+    /**
+     * Get custom error messages for the defined validation rules.
+     *
+     * @return array<string, string>
+     */
+    public function messages(): array
+    {
+        return [
+            'title.required' => 'The title is required.',
+            'description.required' => 'The description is required.',
+            'url.required' => 'The URL is required.',
+            'duration.required' => 'The duration is required.',
+            'title.string' => 'The title must be a string.',
+            'description.string' => 'The description must be a string.',
+            'url.string' => 'The URL must be a string.',
+            'duration.string' => 'The duration must be a string.',
         ];
     }
 }

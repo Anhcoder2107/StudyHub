@@ -29,7 +29,14 @@ class ExerciseSubmitController extends Controller
      */
     public function store(StoreExerciseSubmitRequest $request)
     {
-        //
+        $exerciseSubmit = ExerciseSubmit::create([
+            'user_id' => $request->user_id,
+            'exercise_id' => $request->exercise_id,
+            'submit_time' => $request->submit_time,
+            'file_url' => $request->file_url,
+        ]);
+
+        return response()->json($exerciseSubmit, 201);
     }
 
     /**
@@ -53,7 +60,14 @@ class ExerciseSubmitController extends Controller
      */
     public function update(UpdateExerciseSubmitRequest $request, ExerciseSubmit $exerciseSubmit)
     {
-        //
+        $exerciseSubmit->update([
+            'user_id' => $request->user_id,
+            'exercise_id' => $request->exercise_id,
+            'submit_time' => $request->submit_time,
+            'file_url' => $request->file_url,
+        ]);
+
+        return response()->json($exerciseSubmit, 200);
     }
 
     /**
@@ -61,6 +75,8 @@ class ExerciseSubmitController extends Controller
      */
     public function destroy(ExerciseSubmit $exerciseSubmit)
     {
-        //
+        $exerciseSubmit->delete();
+
+        return response()->json(null, 204);
     }
 }

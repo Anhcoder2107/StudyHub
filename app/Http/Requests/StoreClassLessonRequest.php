@@ -22,7 +22,29 @@ class StoreClassLessonRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'class_id' => ['required', 'integer'],
+            'video_id' => ['required', 'integer'],
+            'title' => ['required', 'string'],
+            'description' => ['required', 'string'],
+        ];
+    }
+
+    /**
+     * Get custom error messages for the defined validation rules.
+     *
+     * @return array<string, string>
+     */
+    public function messages(): array
+    {
+        return [
+            'class_id.required' => 'The class ID is required.',
+            'video_id.required' => 'The video ID is required.',
+            'title.required' => 'The title is required.',
+            'description.required' => 'The description is required.',
+            'class_id.integer' => 'The class ID must be an integer.',
+            'video_id.integer' => 'The video ID must be an integer.',
+            'title.string' => 'The title must be a string.',
+            'description.string' => 'The description must be a string.',
         ];
     }
 }

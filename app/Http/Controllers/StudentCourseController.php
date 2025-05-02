@@ -29,7 +29,15 @@ class StudentCourseController extends Controller
      */
     public function store(StoreStudentCourseRequest $request)
     {
-        //
+        $studentCourse = StudentCourse::create([
+            'user_id' => $request->user_id,
+            'course_id' => $request->course_id,
+            'status' => $request->status,
+            'start_time' => $request->start_time,
+            'progress' => $request->progress,
+        ]);
+
+        return response()->json($studentCourse, 201);
     }
 
     /**
@@ -53,7 +61,15 @@ class StudentCourseController extends Controller
      */
     public function update(UpdateStudentCourseRequest $request, StudentCourse $studentCourse)
     {
-        //
+        $studentCourse->update([
+            'user_id' => $request->user_id,
+            'course_id' => $request->course_id,
+            'status' => $request->status,
+            'start_time' => $request->start_time,
+            'progress' => $request->progress,
+        ]);
+
+        return response()->json($studentCourse, 200);
     }
 
     /**
@@ -61,6 +77,8 @@ class StudentCourseController extends Controller
      */
     public function destroy(StudentCourse $studentCourse)
     {
-        //
+        $studentCourse->delete();
+
+        return response()->json(null, 204);
     }
 }

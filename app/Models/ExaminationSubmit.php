@@ -10,7 +10,7 @@ class ExaminationSubmit extends Model
     /** @use HasFactory<\Database\Factories\ExaminationSubmitFactory> */
     use HasFactory;
 
-    protected $table = 'examination_submit';
+    protected $table = 'examination_submits';
     protected $primaryKey = 'id';
     protected $fillable = ['examination_id', 'user_id', 'submit_time', 'file_url', 'score'];
 

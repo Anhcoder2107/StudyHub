@@ -10,7 +10,7 @@ class Blog extends Model
     /** @use HasFactory<\Database\Factories\BlogFactory> */
     use HasFactory;
 
-    protected $table = 'blog';
+    protected $table = 'blogs';
 
     protected $primaryKey = 'id';
 

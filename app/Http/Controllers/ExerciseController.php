@@ -29,7 +29,16 @@ class ExerciseController extends Controller
      */
     public function store(StoreExerciseRequest $request)
     {
-        //
+        $exercise = Exercise::create([
+            'user_id' => $request->user_id,
+            'title' => $request->title,
+            'description' => $request->description,
+            'due_date' => $request->due_date,
+            'max_score' => $request->max_score,
+
+        ]);
+
+        return response()->json($exercise, 201);
     }
 
     /**
@@ -53,7 +62,15 @@ class ExerciseController extends Controller
      */
     public function update(UpdateExerciseRequest $request, Exercise $exercise)
     {
-        //
+        $exercise->update([
+            'user_id' => $request->user_id,
+            'title' => $request->title,
+            'description' => $request->description,
+            'due_date' => $request->due_date,
+            'max_score' => $request->max_score,
+        ]);
+
+        return response()->json($exercise, 200);
     }
 
     /**
@@ -61,6 +78,8 @@ class ExerciseController extends Controller
      */
     public function destroy(Exercise $exercise)
     {
-        //
+        $exercise->delete();
+
+        return response()->json(null, 204);
     }
 }

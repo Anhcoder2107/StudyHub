@@ -22,7 +22,28 @@ class StoreBlogRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'user_id' => ['required', 'integer'],
+            'title' => ['required', 'string'],
+            'content' => ['required', 'string'],
+            'image' => ['required', 'string'],
+        ];
+    }
+
+    /**
+     * Get custom error messages for the defined validation rules.
+     *
+     * @return array<string, string>
+     */
+    public function messages(): array
+    {
+        return [
+            'user_id.required' => 'The user ID is required.',
+            'title.required' => 'The title is required.',
+            'content.required' => 'The content is required.',
+            'image.required' => 'The image is required.',
+            'user_id.integer' => 'The user ID must be an integer.',
+            'title.string' => 'The title must be a string.',
+            'content.string' => 'The content must be a string.',
         ];
     }
 }

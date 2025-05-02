@@ -29,7 +29,17 @@ class LivestreamController extends Controller
      */
     public function store(StoreLivestreamRequest $request)
     {
-        //
+        $livestream = Livestream::create([
+            'class_id' => $request->class_id,
+            'title' => $request->title,
+            'description' => $request->description,
+            'url' => $request->url,
+            'start_time' => $request->start_time,
+            'end_time' => $request->end_time,
+            'recording_url' => $request->recording_url,
+        ]);
+
+        return response()->json($livestream, 201);
     }
 
     /**
@@ -53,7 +63,17 @@ class LivestreamController extends Controller
      */
     public function update(UpdateLivestreamRequest $request, Livestream $livestream)
     {
-        //
+        $livestream->update([
+            'class_id' => $request->class_id,
+            'title' => $request->title,
+            'description' => $request->description,
+            'url' => $request->url,
+            'start_time' => $request->start_time,
+            'end_time' => $request->end_time,
+            'recording_url' => $request->recording_url,
+        ]);
+
+        return response()->json($livestream, 200);
     }
 
     /**
@@ -61,6 +81,8 @@ class LivestreamController extends Controller
      */
     public function destroy(Livestream $livestream)
     {
-        //
+        $livestream->delete();
+
+        return response()->json(null, 204);
     }
 }

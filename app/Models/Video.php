@@ -10,7 +10,7 @@ class Video extends Model
     /** @use HasFactory<\Database\Factories\VideoFactory> */
     use HasFactory;
 
-    protected $table = 'video';
+    protected $table = 'videos';
     protected $primaryKey = 'id';
     protected $fillable = ['title', 'description', 'url', 'duration'];
 

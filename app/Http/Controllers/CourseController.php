@@ -13,7 +13,8 @@ class CourseController extends Controller
      */
     public function index()
     {
-        //
+
+        return Course::all();
     }
 
     /**
@@ -29,7 +30,15 @@ class CourseController extends Controller
      */
     public function store(StoreCourseRequest $request)
     {
-        //
+        $course = Course::create([
+            'category_id' => $request->category_id,
+            'user_id' => $request->user_id,
+            'course_name' => $request->course_name,
+            'course_description' => $request->course_description,
+            'status' => $request->status,
+        ]);
+
+        return response()->json($course, 201);
     }
 
     /**
@@ -37,7 +46,7 @@ class CourseController extends Controller
      */
     public function show(Course $course)
     {
-        //
+        return response()->json($course);
     }
 
     /**
@@ -53,7 +62,15 @@ class CourseController extends Controller
      */
     public function update(UpdateCourseRequest $request, Course $course)
     {
-        //
+        $course->update([
+            'category_id' => $request->category_id,
+            'user_id' => $request->user_id,
+            'course_name' => $request->course_name,
+            'course_description' => $request->course_description,
+            'status' => $request->status,
+        ]);
+
+        return response()->json($course);
     }
 
     /**
@@ -61,6 +78,8 @@ class CourseController extends Controller
      */
     public function destroy(Course $course)
     {
-        //
+        $course->delete();
+
+        return response()->json(null, 204);
     }
 }

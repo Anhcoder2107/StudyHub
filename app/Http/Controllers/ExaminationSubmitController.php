@@ -29,7 +29,14 @@ class ExaminationSubmitController extends Controller
      */
     public function store(StoreExaminationSubmitRequest $request)
     {
-        //
+        $examinationSubmit = ExaminationSubmit::create([
+            'user_id' => $request->user_id,
+            'examination_id' => $request->examination_id,
+            'question_id' => $request->question_id,
+            'answer' => $request->answer,
+        ]);
+
+        return response()->json($examinationSubmit, 201);
     }
 
     /**
@@ -53,7 +60,14 @@ class ExaminationSubmitController extends Controller
      */
     public function update(UpdateExaminationSubmitRequest $request, ExaminationSubmit $examinationSubmit)
     {
-        //
+        $examinationSubmit->update([
+            'user_id' => $request->user_id,
+            'examination_id' => $request->examination_id,
+            'question_id' => $request->question_id,
+            'answer' => $request->answer,
+        ]);
+
+        return response()->json($examinationSubmit, 200);
     }
 
     /**
@@ -61,6 +75,8 @@ class ExaminationSubmitController extends Controller
      */
     public function destroy(ExaminationSubmit $examinationSubmit)
     {
-        //
+        $examinationSubmit->delete();
+
+        return response()->json(null, 204);
     }
 }

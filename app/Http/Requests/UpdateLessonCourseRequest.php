@@ -22,7 +22,10 @@ class UpdateLessonCourseRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'course_id' => ['required', 'integer'],
+            'video_id' => ['required', 'integer'],
+            'title' => ['required', 'string'],
+            'description' => ['required', 'string'],
         ];
     }
 }

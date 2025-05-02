@@ -22,7 +22,8 @@ class UpdateCategoryCourseRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'category_name' => ['required', 'string'],
+            'category_description' => ['required', 'string'],
         ];
     }
 }

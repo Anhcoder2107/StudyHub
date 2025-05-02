@@ -29,7 +29,14 @@ class BlogController extends Controller
      */
     public function store(StoreBlogRequest $request)
     {
-        //
+        $blog = Blog::create([
+            'user_id' => $request->user_id,
+            'title' => $request->title,
+            'content' => $request->blog_description,
+            'image' => $request->image,
+        ]);
+
+        return response()->json($blog, 201);
     }
 
     /**
@@ -37,7 +44,7 @@ class BlogController extends Controller
      */
     public function show(Blog $blog)
     {
-        //
+        return response()->json($blog);
     }
 
     /**
@@ -53,7 +60,14 @@ class BlogController extends Controller
      */
     public function update(UpdateBlogRequest $request, Blog $blog)
     {
-        //
+        $blog->update([
+            'user_id' => $request->user_id,
+            'title' => $request->title,
+            'content' => $request->blog_description,
+            'image' => $request->image,
+        ]);
+
+        return response()->json($blog, 200);
     }
 
     /**
@@ -61,6 +75,8 @@ class BlogController extends Controller
      */
     public function destroy(Blog $blog)
     {
-        //
+        $blog->delete();
+
+        return response()->json(null, 204);
     }
 }

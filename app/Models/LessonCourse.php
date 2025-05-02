@@ -10,7 +10,7 @@ class LessonCourse extends Model
     /** @use HasFactory<\Database\Factories\LessonCourseFactory> */
     use HasFactory;
 
-    protected $table = 'lesson_course';
+    protected $table = 'lesson_courses';
     protected $fillable = ['course_id', 'video_id', 'title', 'description', 'order_lesson', 'resource_links', 'status'];
 
     public function course()

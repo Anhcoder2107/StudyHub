@@ -10,7 +10,7 @@ class Examination extends Model
     /** @use HasFactory<\Database\Factories\ExaminationFactory> */
     use HasFactory;
 
-    protected $table = 'examination';
+    protected $table = 'examinations';
     protected $primaryKey = 'id';
     protected $fillable = ['user_id', 'title', 'description', 'start_time', 'end_time', 'duration', 'max_score'];
 

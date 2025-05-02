@@ -10,7 +10,7 @@ class CategoryCourse extends Model
     /** @use HasFactory<\Database\Factories\CategoryCourseFactory> */
     use HasFactory;
 
-    protected $table = 'category_course';
+    protected $table = 'category_courses';
     protected $primaryKey = 'id';
     protected $fillable = ['category_name', 'category_description'];
     protected $casts = [

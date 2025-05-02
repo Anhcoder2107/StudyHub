@@ -22,7 +22,10 @@ class UpdateExerciseSubmitRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'exercise_id' => ['required', 'integer'],
+            'user_id' => ['required', 'integer'],
+            'submit_time' => ['required', 'date'],
+            'file_url' => ['required', 'string'],
         ];
     }
 }

@@ -13,7 +13,7 @@ class CategoryCourseController extends Controller
      */
     public function index()
     {
-        //
+        return CategoryCourse::all();
     }
 
     /**
@@ -29,7 +29,12 @@ class CategoryCourseController extends Controller
      */
     public function store(StoreCategoryCourseRequest $request)
     {
-        //
+        $categoryCourse = CategoryCourse::create([
+            'category_name' => $request->category_name,
+            'category_description' => $request->category_description,
+        ]);
+
+        return response()->json($categoryCourse, 201);
     }
 
     /**
@@ -37,7 +42,7 @@ class CategoryCourseController extends Controller
      */
     public function show(CategoryCourse $categoryCourse)
     {
-        //
+        return response()->json($categoryCourse);
     }
 
     /**
@@ -53,7 +58,12 @@ class CategoryCourseController extends Controller
      */
     public function update(UpdateCategoryCourseRequest $request, CategoryCourse $categoryCourse)
     {
-        //
+        $categoryCourse->update([
+            'category_name' => $request->category_name,
+            'category_description' => $request->category_description,
+        ]);
+
+        return response()->json($categoryCourse, 200);
     }
 
     /**
@@ -61,6 +71,8 @@ class CategoryCourseController extends Controller
      */
     public function destroy(CategoryCourse $categoryCourse)
     {
-        //
+        $categoryCourse->delete();
+
+        return response()->json(null, 204);
     }
 }

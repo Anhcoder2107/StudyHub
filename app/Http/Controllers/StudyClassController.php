@@ -29,7 +29,13 @@ class StudyClassController extends Controller
      */
     public function store(StoreStudyClassRequest $request)
     {
-        //
+        $studyClass = StudyClass::create([
+            'class_name' => $request->class_name,
+            'class_description' => $request->class_description,
+            'start_time' => $request->start_time,
+            'end_time' => $request->end_time,
+        ]);
+        return response()->json($studyClass, 201);
     }
 
     /**
@@ -53,7 +59,13 @@ class StudyClassController extends Controller
      */
     public function update(UpdateStudyClassRequest $request, StudyClass $studyClass)
     {
-        //
+        $studyClass->update([
+            'class_name' => $request->class_name,
+            'class_description' => $request->class_description,
+            'start_time' => $request->start_time,
+            'end_time' => $request->end_time,
+        ]);
+        return response()->json($studyClass, 200);
     }
 
     /**
@@ -61,6 +73,7 @@ class StudyClassController extends Controller
      */
     public function destroy(StudyClass $studyClass)
     {
-        //
+        $studyClass->delete();
+        return response()->json(null, 204);
     }
 }

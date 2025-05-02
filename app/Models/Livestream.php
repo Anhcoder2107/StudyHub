@@ -10,7 +10,7 @@ class Livestream extends Model
     /** @use HasFactory<\Database\Factories\LivestreamFactory> */
     use HasFactory;
 
-    protected $table = 'livestream';
+    protected $table = 'livestreams';
     protected $primaryKey = 'id';
     protected $fillable = ['class_id', 'title', 'description', 'start_time', 'end_time', 'url', 'recording_url'];
 

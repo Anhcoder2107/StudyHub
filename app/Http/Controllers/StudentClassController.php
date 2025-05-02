@@ -29,7 +29,15 @@ class StudentClassController extends Controller
      */
     public function store(StoreStudentClassRequest $request)
     {
-        //
+        $studentClass = StudentClass::create([
+            'user_id' => $request->user_id,
+            'class_id' => $request->class_id,
+            'status' => $request->status,
+            'start_time' => $request->start_time,
+            'description' => $request->description,
+        ]);
+
+        return response()->json($studentClass, 201);
     }
 
     /**
@@ -37,7 +45,7 @@ class StudentClassController extends Controller
      */
     public function show(StudentClass $studentClass)
     {
-        //
+        return response()->json($studentClass);
     }
 
     /**
@@ -53,7 +61,15 @@ class StudentClassController extends Controller
      */
     public function update(UpdateStudentClassRequest $request, StudentClass $studentClass)
     {
-        //
+        $studentClass->update([
+            'user_id' => $request->user_id,
+            'class_id' => $request->class_id,
+            'status' => $request->status,
+            'start_time' => $request->start_time,
+            'description' => $request->description,
+        ]);
+
+        return response()->json($studentClass, 200);
     }
 
     /**
@@ -61,6 +77,8 @@ class StudentClassController extends Controller
      */
     public function destroy(StudentClass $studentClass)
     {
-        //
+        $studentClass->delete();
+
+        return response()->json(null, 204);
     }
 }

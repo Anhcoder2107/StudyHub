@@ -22,7 +22,11 @@ class UpdateStudentCourseRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'user_id' => ['required', 'integer'],
+            'course_id' => ['required', 'integer'],
+            'status' => ['required', 'string'],
+            'start_time' => ['required', 'string'],
+            'progress' => ['required', 'integer']
         ];
     }
 }

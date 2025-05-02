@@ -21,7 +21,7 @@ class ClassLessonController extends Controller
      */
     public function create()
     {
-        //
+
     }
 
     /**
@@ -29,7 +29,14 @@ class ClassLessonController extends Controller
      */
     public function store(StoreClassLessonRequest $request)
     {
-        //
+        $classLesson = ClassLesson::create([
+            'class_id' => $request->class_id,
+            'video_id' => $request->video_id,
+            'title' => $request->title,
+            'description' => $request->description,
+        ]);
+
+        return response()->json($classLesson, 201);
     }
 
     /**
@@ -53,7 +60,14 @@ class ClassLessonController extends Controller
      */
     public function update(UpdateClassLessonRequest $request, ClassLesson $classLesson)
     {
-        //
+        $classLesson->update([
+            'class_id' => $request->class_id,
+            'video_id' => $request->video_id,
+            'title' => $request->title,
+            'description' => $request->description,
+        ]);
+
+        return response()->json($classLesson, 200);
     }
 
     /**
@@ -61,6 +75,8 @@ class ClassLessonController extends Controller
      */
     public function destroy(ClassLesson $classLesson)
     {
-        //
+        $classLesson->delete();
+
+        return response()->json(null, 204);
     }
 }
