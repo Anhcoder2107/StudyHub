@@ -9,4 +9,19 @@ class Blog extends Model
 {
     /** @use HasFactory<\Database\Factories\BlogFactory> */
     use HasFactory;
+
+    protected $table = 'blog';
+
+    protected $primaryKey = 'id';
+
+    protected $fillable = ['user_id', 'title', 'file', 'content', 'image'];
+    protected $casts = [
+        'created_at' => 'datetime',
+        'updated_at' => 'datetime',
+    ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

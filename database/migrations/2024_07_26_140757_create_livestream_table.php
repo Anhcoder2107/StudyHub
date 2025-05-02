@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('livestream', function (Blueprint $table) {
+        Schema::create('livestreams', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('class_id');
             $table->string('title');
@@ -31,6 +31,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('livestream');
+        Schema::dropIfExists('livestreams');
     }
 };
