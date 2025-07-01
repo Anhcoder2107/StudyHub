@@ -14,7 +14,8 @@ class CourseController extends Controller
     public function index()
     {
 
-        return Course::all();
+        $courses = Course::orderBy('created_at', 'desc')->paginate(10);
+        return response()->json($courses);
     }
 
     /**

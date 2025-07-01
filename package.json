@@ -9,18 +9,25 @@
         "@inertiajs/vue3": "^2.0.0",
         "@tailwindcss/forms": "^0.5.3",
         "@tailwindcss/vite": "^4.0.0",
-        "@vitejs/plugin-vue": "^5.0.0",
+        "@types/node": "^22.15.19",
+        "@vitejs/plugin-vue": "^5.2.4",
         "@vue/server-renderer": "^3.4.0",
         "autoprefixer": "^10.4.12",
         "axios": "^1.8.2",
         "concurrently": "^9.0.1",
         "laravel-vite-plugin": "^1.2.0",
         "postcss": "^8.4.31",
+        "sass-embedded": "^1.88.0",
         "tailwindcss": "^3.2.1",
         "vite": "^6.2.4",
         "vue": "^3.4.0"
     },
     "dependencies": {
-        "laravel-permission-to-vuejs": "^3.0.8"
+        "@fortawesome/fontawesome-free": "^6.7.2",
+        "@popperjs/core": "^2.11.8",
+        "chart.js": "^4.5.0",
+        "laravel-permission-to-vuejs": "^3.0.8",
+        "vue-router": "^4.5.1",
+        "vuex": "^4.1.0"
     }
 }

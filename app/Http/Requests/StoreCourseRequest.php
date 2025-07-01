@@ -38,16 +38,16 @@ class StoreCourseRequest extends FormRequest
     public function messages(): array
     {
         return [
-            'category_id.required' => 'The category ID is required.',
-            'user_id.required' => 'The user ID is required.',
-            'course_name.required' => 'The course name is required.',
-            'course_description.required' => 'The course description is required.',
-            'status.required' => 'The status is required.',
-            'category_id.integer' => 'The category ID must be an integer.',
-            'user_id.integer' => 'The user ID must be an integer.',
-            'course_name.string' => 'The course name must be a string.',
-            'course_name.max' => 'The course name may not be greater than 255 characters.',
-            'course_description.string' => 'The course description must be a string.',
+            'category_id.required' => 'Trường danh mục là bắt buộc.',
+            'user_id.required' => 'Trường người dùng là bắt buộc.',
+            'course_name.required' => 'Tên khóa học là bắt buộc.',
+            'course_description.required' => 'Mô tả khóa học là bắt buộc.',
+            'status.required' => 'Trạng thái là bắt buộc.',
+            'category_id.integer' => 'Danh mục phải là một số nguyên.',
+            'user_id.integer' => 'Người dùng phải là một số nguyên.',
+            'course_name.string' => 'Tên khóa học phải là chuỗi ký tự.',
+            'course_name.max' => 'Tên khóa học không được vượt quá 255 ký tự.',
+            'course_description.string' => 'Mô tả khóa học phải là chuỗi ký tự.',
         ];
     }
 

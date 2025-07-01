@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Backend;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
+use Illuminate\Support\Facades\Auth;
 
 class CourseController extends Controller
 {
@@ -13,11 +14,7 @@ class CourseController extends Controller
      */
     public function index()
     {
-        return Inertia::render('Course/Index',
-            [
-                'courses' => \App\Models\Course::all(),
-            ]
-        );
+        return Inertia::render('Admin/Pages/Course/Index');
     }
 
     /**
@@ -25,7 +22,9 @@ class CourseController extends Controller
      */
     public function create()
     {
-        //
+        return Inertia::render('Admin/Pages/Course/Create', [
+            'user_id' => Auth::user()->id,
+        ]);
     }
 
     /**
@@ -49,7 +48,10 @@ class CourseController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        return Inertia::render('Admin/Pages/Course/Edit', [
+            'courseId' => $id,
+            'user_id' => Auth::user()->id,
+        ]);
     }
 
     /**

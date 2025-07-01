@@ -32,7 +32,7 @@ class BlogController extends Controller
         $blog = Blog::create([
             'user_id' => $request->user_id,
             'title' => $request->title,
-            'content' => $request->blog_description,
+            'content' => $request->content,
             'image' => $request->image,
         ]);
 
@@ -63,7 +63,7 @@ class BlogController extends Controller
         $blog->update([
             'user_id' => $request->user_id,
             'title' => $request->title,
-            'content' => $request->blog_description,
+            'content' => $request->content,
             'image' => $request->image,
         ]);
 

@@ -13,7 +13,9 @@ class CategoryCourseController extends Controller
      */
     public function index()
     {
-        return CategoryCourse::all();
+        return response()->json(
+            CategoryCourse::orderBy('created_at', 'desc')->paginate(10)
+        );
     }
 
     /**
@@ -74,5 +76,10 @@ class CategoryCourseController extends Controller
         $categoryCourse->delete();
 
         return response()->json(null, 204);
+    }
+
+    public function getAllCategories()
+    {
+        return response()->json(CategoryCourse::all());
     }
 }

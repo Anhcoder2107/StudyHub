@@ -10,6 +10,7 @@
     "license": "MIT",
     "require": {
         "php": "^8.2",
+        "ahmedsaoud31/laravel-permission-to-vuejs": "dev-master",
         "aws/aws-sdk-php": "^3.343",
         "inertiajs/inertia-laravel": "^2.0",
         "laravel/framework": "^12.0",
