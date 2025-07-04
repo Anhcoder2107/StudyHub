@@ -9,7 +9,6 @@ import { createInertiaApp } from '@inertiajs/vue3';
 import { resolvePageComponent } from 'laravel-vite-plugin/inertia-helpers';
 import { createApp, h } from 'vue';
 import { ZiggyVue } from '../../vendor/tightenco/ziggy';
-import router from './router/index.js';
 import LaravelPermissionToVueJS from 'laravel-permission-to-vuejs'
 
 
@@ -27,7 +26,6 @@ createInertiaApp({
         return createApp({ render: () => h(App, props) })
             .use(plugin)
             .use(ZiggyVue)
-            .use(router)
             .use(LaravelPermissionToVueJS)
             .mount(el)
     },
