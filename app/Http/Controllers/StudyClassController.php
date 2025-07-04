@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\StudyClass;
 use App\Http\Requests\StoreStudyClassRequest;
 use App\Http\Requests\UpdateStudyClassRequest;
+use Illuminate\Http\Request;
 
 class StudyClassController extends Controller
 {
@@ -13,7 +14,8 @@ class StudyClassController extends Controller
      */
     public function index()
     {
-        //
+        $studyClasses = StudyClass::orderBy('created_at', 'desc')->paginate(10);
+        return response()->json($studyClasses, 200);
     }
 
     /**
@@ -30,8 +32,9 @@ class StudyClassController extends Controller
     public function store(StoreStudyClassRequest $request)
     {
         $studyClass = StudyClass::create([
-            'class_name' => $request->class_name,
-            'class_description' => $request->class_description,
+            'user_id' => $request->user_id,
+            'name' => $request->name,
+            'description' => $request->description,
             'start_time' => $request->start_time,
             'end_time' => $request->end_time,
         ]);
@@ -41,9 +44,13 @@ class StudyClassController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(StudyClass $studyClass)
+    public function show($id)
     {
-        //
+        $studyClass = StudyClass::find($id);
+        if (!$studyClass) {
+            return response()->json(['message' => 'Study class not found'], 404);
+        }
+        return response()->json($studyClass);
     }
 
     /**
@@ -57,11 +64,17 @@ class StudyClassController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateStudyClassRequest $request, StudyClass $studyClass)
+    public function update(Request $request, string $id)
     {
+        $studyClass = StudyClass::find($id);
+        if (!$studyClass) {
+            return response()->json(['message' => 'Study class not found'], 404);
+        }
+
         $studyClass->update([
-            'class_name' => $request->class_name,
-            'class_description' => $request->class_description,
+            'user_id' => $request->user_id,
+            'name' => $request->name,
+            'description' => $request->description,
             'start_time' => $request->start_time,
             'end_time' => $request->end_time,
         ]);
@@ -71,9 +84,20 @@ class StudyClassController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(StudyClass $studyClass)
+    public function destroy(string $id)
     {
+        $studyClass = StudyClass::find($id);
+        if (!$studyClass) {
+            return response()->json(['message' => 'Study class not found'], 404);
+        }
         $studyClass->delete();
         return response()->json(null, 204);
+    }
+
+    public function getAllClasses()
+    {
+        $studyClasses = StudyClass::orderBy('created_at', 'desc')->paginate(10);
+
+        return response()->json($studyClasses, 200);
     }
 }

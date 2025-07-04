@@ -37,13 +37,13 @@ class UpdateBlogRequest extends FormRequest
     public function messages(): array
     {
         return [
-            'user_id.required' => json_encode(['message' => 'The user ID is required.']),
-            'title.required' => json_encode(['message' => 'The title is required.']),
-            'content.required' => json_encode(['message' => 'The content is required.']),
-            'image.required' => json_encode(['message' => 'The image is required.']),
-            'user_id.integer' => json_encode(['message' => 'The user ID must be an integer.']),
-            'title.string' => json_encode(['message' => 'The title must be a string.']),
-            'content.string' => json_encode(['message' => 'The content must be a string.']),
+            'user_id.required' => 'The user ID is required.',
+            'title.required' => 'The title is required.',
+            'content.required' => 'The content is required.',
+            'image.required' => 'The image is required.',
+            'user_id.integer' => 'The user ID must be an integer.',
+            'title.string' => 'The title must be a string.',
+            'content.string' => 'The content must be a string.',
         ];
     }
 }

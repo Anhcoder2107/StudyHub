@@ -71,6 +71,12 @@ Route::prefix('admin')->group(function () {
 
         // category-courses
         Route::resource('category-courses', 'App\Http\Controllers\Backend\CategoryCourseController');
+
+        // classes
+        Route::resource('classes', 'App\Http\Controllers\Backend\ClassController');
+
+        // blogs
+        Route::resource('blogs', 'App\Http\Controllers\Backend\BlogController');
     });
 
 });

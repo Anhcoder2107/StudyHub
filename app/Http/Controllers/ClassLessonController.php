@@ -13,7 +13,9 @@ class ClassLessonController extends Controller
      */
     public function index()
     {
-        //
+        $classLessons = ClassLesson::orderBy('created_at', 'desc')->paginate(10);
+
+        return response()->json($classLessons, 200);
     }
 
     /**
@@ -79,4 +81,6 @@ class ClassLessonController extends Controller
 
         return response()->json(null, 204);
     }
+
+
 }

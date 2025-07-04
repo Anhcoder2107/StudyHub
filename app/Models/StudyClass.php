@@ -11,7 +11,9 @@ class StudyClass extends Model
     use HasFactory;
 
     protected $table = 'class';
-    protected $fillable = ['user_id', 'name', 'description', 'start_time', 'end_time', 'status'];
+
+    protected $primaryKey = 'id';
+    protected $fillable = ['user_id', 'name', 'description', 'start_time', 'end_time'];
 
     public function user()
     {

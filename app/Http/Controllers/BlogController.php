@@ -13,7 +13,8 @@ class BlogController extends Controller
      */
     public function index()
     {
-        //
+        $blogs = Blog::orderBy('created_at', 'desc')->paginate(10);
+        return response()->json($blogs, 200);
     }
 
     /**
@@ -52,7 +53,7 @@ class BlogController extends Controller
      */
     public function edit(Blog $blog)
     {
-        //
+        return response()->json($blog);
     }
 
     /**
