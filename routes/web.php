@@ -18,6 +18,14 @@ Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
+Route::get('/landing', function () {
+    return Inertia::render('Landing');
+})->name('landing');
+
+Route::get('/profilevue', function () {
+    return Inertia::render('Profile');
+})->name('profile.vue');
+
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
@@ -41,7 +49,7 @@ Route::prefix('admin')->group(function () {
     })->name('admin.register');
 
 
-    Route::group(['middleware' => 'auth'], function () {
+    Route::group(['middleware' => ['auth','role:admin|teacher|student']], function () {
         // Redirect 'admin/' to 'admin/dashboard'
         Route::get('/', function () {
             return redirect()->route('admin.dashboard');
@@ -61,22 +69,70 @@ Route::prefix('admin')->group(function () {
         Route::get('users/roles/{user}', 'App\Http\Controllers\Backend\UserController@roles')->name('admin.users.roles');
 
         //roles
-        Route::resource('roles', 'App\Http\Controllers\Backend\RoleController');
+        Route::resource('roles', 'App\Http\Controllers\Backend\RoleController')->names([
+            'index' => 'admin.roles.index',
+            'create' => 'admin.roles.create',
+            'store' => 'admin.roles.store',
+            'show' => 'admin.roles.show',
+            'edit' => 'admin.roles.edit',
+            'update' => 'admin.roles.update',
+            'destroy' => 'admin.roles.destroy',
+        ]);
 
         // permissions
-        Route::resource('permissions', 'App\Http\Controllers\Backend\PermissionController');
+        Route::resource('permissions', 'App\Http\Controllers\Backend\PermissionController')->names([
+            'index' => 'admin.permissions.index',
+            'create' => 'admin.permissions.create',
+            'store' => 'admin.permissions.store',
+            'show' => 'admin.permissions.show',
+            'edit' => 'admin.permissions.edit',
+            'update' => 'admin.permissions.update',
+            'destroy' => 'admin.permissions.destroy',
+        ]);
 
         // courses
-        Route::resource('courses', 'App\Http\Controllers\Backend\CourseController');
+        Route::resource('courses', 'App\Http\Controllers\Backend\CourseController')->names([
+            'index' => 'admin.courses.index',
+            'create' => 'admin.courses.create',
+            'store' => 'admin.courses.store',
+            'show' => 'admin.courses.show',
+            'edit' => 'admin.courses.edit',
+            'update' => 'admin.courses.update',
+            'destroy' => 'admin.courses.destroy',
+        ]);
 
         // category-courses
-        Route::resource('category-courses', 'App\Http\Controllers\Backend\CategoryCourseController');
+        Route::resource('category-courses', 'App\Http\Controllers\Backend\CategoryCourseController')->names([
+            'index' => 'admin.category-courses.index',
+            'create' => 'admin.category-courses.create',
+            'store' => 'admin.category-courses.store',
+            'show' => 'admin.category-courses.show',
+            'edit' => 'admin.category-courses.edit',
+            'update' => 'admin.category-courses.update',
+            'destroy' => 'admin.category-courses.destroy',
+        ]);
 
         // classes
-        Route::resource('classes', 'App\Http\Controllers\Backend\ClassController');
+        Route::resource('classes', 'App\Http\Controllers\Backend\ClassController')->names([
+            'index' => 'admin.classes.index',
+            'create' => 'admin.classes.create',
+            'store' => 'admin.classes.store',
+            'show' => 'admin.classes.show',
+            'edit' => 'admin.classes.edit',
+            'update' => 'admin.classes.update',
+            'destroy' => 'admin.classes.destroy',
+        ]);
 
         // blogs
-        Route::resource('blogs', 'App\Http\Controllers\Backend\BlogController');
+        Route::resource('blogs', 'App\Http\Controllers\Backend\BlogController')->names([
+            'index' => 'admin.blogs.index',
+            'create' => 'admin.blogs.create',
+            'store' => 'admin.blogs.store',
+            'show' => 'admin.blogs.show',
+            'edit' => 'admin.blogs.edit',
+            'update' => 'admin.blogs.update',
+            'destroy' => 'admin.blogs.destroy',
+        ]);
     });
 
 });

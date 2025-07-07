@@ -26,7 +26,7 @@
         </div>
         <div v-if="can('Browse blog')" class="container mx-auto px-4 py-6">
             <div class="flex justify-end mb-4">
-                <Link :href="route('blogs.create')"
+                <Link :href="route('admin.blogs.create')"
                     class="px-6 py-3 bg-emerald-500 text-white rounded shadow hover:bg-emerald-600 transition duration-200">
                     Create Blog
                 </Link>

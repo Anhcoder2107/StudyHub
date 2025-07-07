@@ -52,6 +52,7 @@ class BlogController extends Controller
         return Inertia::render('Admin/Pages/Blog/Edit', [
             'user_id' => Auth::user()->id,
             'blog_id' => $id,
+            'blog' => \App\Models\Blog::findOrFail($id),
         ]);
     }
 

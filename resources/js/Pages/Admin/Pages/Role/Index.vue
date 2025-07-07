@@ -3,7 +3,7 @@
         <div v-if="can('Browse role')" class="container mx-auto px-4 py-6">
             <div class="flex justify-between items-center mb-4">
                 <h3 class="font-semibold text-lg text-blueGray-700">Role Management</h3>
-                <Link :href="route('roles.create')"
+                <Link :href="route('admin.roles.create')"
                     class="px-6 py-3 bg-emerald-500 text-white rounded shadow hover:bg-emerald-600 transition duration-200">
                     Create Role
                 </Link>
@@ -135,7 +135,11 @@ export default {
 
         const roleData = computed(() => {
             return roles.value.map(role => ({
-                ...role,
+                id: role.id,
+                name_role: role.name || 'N/A',
+                guard_name: role.guard_name || 'N/A',
+                created_at: role.created_at ,
+                updated_at: role.updated_at
             }));
         });
 

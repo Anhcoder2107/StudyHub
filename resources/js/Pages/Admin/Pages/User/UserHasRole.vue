@@ -24,7 +24,7 @@
                 </svg>
             </button>
         </div>
-        <div v-if="can('Browse user') && can('Edit user') && can('Browse role')" class="container mx-auto px-4 py-6">
+        <div  v-if="can('Browse User') && can('Edit User') && can('Browse role')" class="container mx-auto px-4 py-6">
             <div class="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded bg-white">
                 <div class="rounded-t mb-0 px-4 py-3 border-0">
                     <div class="flex flex-wrap items-center">

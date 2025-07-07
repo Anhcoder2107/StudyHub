@@ -25,7 +25,7 @@ class StoreBlogRequest extends FormRequest
             'user_id' => ['required', 'integer'],
             'title' => ['required', 'string'],
             'content' => ['required', 'string'],
-            'image' => ['required', 'string'],
+            'image' => ['required', 'image', 'max:2048'],
         ];
     }
 
@@ -41,6 +41,8 @@ class StoreBlogRequest extends FormRequest
             'title.required' => 'The title is required.',
             'content.required' => 'The content is required.',
             'image.required' => 'The image is required.',
+            'image.image' => 'The file must be an image.',
+            'image.max' => 'The image must not be greater than 2MB.',
             'user_id.integer' => 'The user ID must be an integer.',
             'title.string' => 'The title must be a string.',
             'content.string' => 'The content must be a string.',

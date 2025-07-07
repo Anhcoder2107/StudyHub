@@ -2,7 +2,7 @@
     <layout-authen>
         <div v-if="can('Create blog')" class="container mx-auto px-4 py-6">
             <h2 class="text-2xl font-bold mb-4">Create New Blog</h2>
-            <form @submit.prevent="submitForm" class="space-y-4" novalidate>
+            <form @submit.prevent="submitForm" class="space-y-4" enctype="multipart/form-data" novalidate>
                 <div>
                     <label for="title" class="block text-sm font-medium text-gray-700">Title</label>
                     <input v-model="form.title" id="title" type="text" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm" required>
@@ -13,7 +13,7 @@
                 </div>
                 <div>
                     <label for="image" class="block text-sm font-medium text-gray-700">Image</label>
-                    <input v-model="form.image" id="image" type="text" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm" required>
+                    <input id="image" @input="form.image = $event.target.files[0]" type="file" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm" required>
                 </div>
                 <button type="submit" class="px-4 py-2 bg-emerald-500 text-white rounded hover:bg-emerald-600">Submit</button>
             </form>
@@ -24,8 +24,8 @@
 </template>
 
 <script>
-import { Link } from '@inertiajs/vue3';
-import { ref, onMounted, computed } from 'vue';
+import { Link, router } from '@inertiajs/vue3';
+import { ref, onMounted, computed, reactive } from 'vue';
 import axios from 'axios';
 import LayoutAuthen from "@/Layouts/admin/AuthenticatedLayout.vue";
 import { can } from 'laravel-permission-to-vuejs';
@@ -40,21 +40,20 @@ export default {
     setup() {
         const page = usePage();
         const userId = computed(() => page.props.user_id || '');
-        const form = ref({
+        const form = reactive({
             user_id: userId.value,
             title: '',
             content: '',
-            image: ''
+            image: null
         });
         const success = ref(null);
         const error = ref(null);
 
+
         const submitForm = async () => {
             try {
-                await axios.post('http://localhost:8000/api/blogs', {
-                    ...form.value,
-                    created_at: new Date().toISOString(),
-                    updated_at: new Date().toISOString()
+                router.post('http://localhost:8000/api/blogs', form, {
+                    forceFormData: true,
                 });
                 success.value = 'Blog created successfully.';
                 error.value = null;
@@ -76,7 +75,7 @@ export default {
             success,
             error,
             can,
-            userId
+            userId,
         };
     },
 };
