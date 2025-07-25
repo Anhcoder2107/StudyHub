@@ -1,61 +1,100 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# 📚 StudyHub - Giới Thiệu Nền Tảng Học Trực Tuyến
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+StudyHub là nền tảng học tập trực tuyến toàn diện, giúp kết nối học sinh/sinh viên với giáo viên/giảng viên qua các khóa học đa dạng, hỗ trợ nhiều hình thức học như video, bài tập, thi cử và livestream.
 
-## About Laravel
+---
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## 🚀 CHỨC NĂNG CƠ BẢN
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+### 🔐 Đăng ký / Đăng nhập
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+* Đăng ký tài khoản qua email hoặc mạng xã hội.
+* Đăng nhập an toàn và bảo mật.
 
-## Learning Laravel
+### 👥 Quản lý người dùng
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+* Phân loại:
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+  * Học sinh / Sinh viên
+  * Giáo viên / Giảng viên
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+---
 
-## Laravel Sponsors
+## 🎓 Khóa Học
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+### 📚 Trang khóa học
 
-### Premium Partners
+* Danh sách các khóa học.
+* Tìm kiếm và lọc khóa học theo từ khóa, danh mục.
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development/)**
-- **[Active Logic](https://activelogic.com)**
+### 📄 Chi tiết khóa học
 
-## Contributing
+* Thông tin giới thiệu khóa học.
+* Danh sách bài học chi tiết.
+* Đánh giá và nhận xét từ học viên.
+* Gắn nhãn Có phí / Miễn phí.
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+### 🎥 Học qua video
 
-## Code of Conduct
+* Xem video bài giảng.
+* Tích hợp các nền tảng video như YouTube, Vimeo.
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+### 📝 Làm bài tập
 
-## Security Vulnerabilities
+* Hỗ trợ bài tập trắc nghiệm và tự luận.
+* Nộp bài online, chấm điểm tự động.
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+### 🧪 Bài thi
 
-## License
+* Tạo và quản lý bài thi.
+* Làm bài trực tuyến với thời gian giới hạn.
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+---
+
+## 📡 Livestream giảng dạy
+
+* Livestream trực tiếp bài giảng.
+* Tích hợp Zoom, Google Meet hoặc sử dụng hệ thống livestream riêng.
+* Cho phép xem lại livestream đã kết thúc.
+
+---
+
+## 🏫 Quản lý lớp học
+
+* Tạo lớp học mới.
+* Thêm, sửa, xóa học sinh / sinh viên.
+* Giao bài tập, bài thi cho lớp.
+
+### 💬 Giao tiếp học sinh & giáo viên
+
+* Gửi và nhận thông báo qua email hoặc trong nền tảng.
+* Thông báo về bài học mới, bài tập, livestream sắp tới.
+
+---
+
+## ⚙️ Trang quản trị
+
+* Quản lý toàn bộ người dùng (giáo viên, học sinh).
+* Quản lý khóa học, bài học, bài tập, bài thi.
+* Quản lý lớp học và các thành viên trong lớp.
+* Quản lý các sự kiện livestream.
+
+---
+
+## ✍️ Trang blog
+
+* Quản lý và đăng bài blog.
+* Hỗ trợ các danh mục cố định.
+
+---
+
+## 👨‍🏫 Trang khóa học của tôi (Giáo viên)
+
+* Quản lý danh sách khóa học đã tạo.
+* Thêm bài tập.
+* Tải lên hoặc quay video trực tiếp.
+* Gắn file tài liệu bổ trợ vào từng bài học.
+
+---
+
+> StudyHub - Nền tảng học tập số, thông minh và hiện đại dành cho giáo viên & học sinh trong kỷ nguyên số.
