@@ -24,9 +24,18 @@
     },
     "dependencies": {
         "@fortawesome/fontawesome-free": "^6.7.2",
+        "@fullcalendar/core": "^6.1.18",
+        "@fullcalendar/vue3": "^6.1.18",
         "@popperjs/core": "^2.11.8",
+        "@tiptap/extension-underline": "^3.0.2",
+        "@tiptap/pm": "^3.0.2",
+        "@tiptap/starter-kit": "^3.0.2",
+        "@tiptap/vue-3": "^3.0.2",
         "chart.js": "^4.5.0",
         "laravel-permission-to-vuejs": "^3.0.8",
+        "lucide-vue-next": "^0.525.0",
+        "v-calendar": "^3.1.2",
+        "vue-cal": "^5.0.1-rc.25",
         "vue-router": "^4.5.1",
         "vuex": "^4.1.0"
     }

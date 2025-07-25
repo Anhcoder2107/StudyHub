@@ -31,20 +31,34 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
+    //Messages
+    Route::get('messages', 'App\Http\Controllers\FrontEnd\MessageController@index')->name('messages.index');
+    // Route::get('messages/create', 'App\Http\Controllers\FrontEnd\MessageController@create')->name('messages.create');
+    // Route::post('messages', 'App\Http\Controllers\FrontEnd\MessageController@store')->name('messages.store');
+    // Route::get('messages/{id}', 'App\Http\Controllers\FrontEnd\MessageController@show')->name('messages.show');
+    // Route::put('messages/{id}', 'App\Http\Controllers\FrontEnd\MessageController@update')->name('messages.update');
+    // Route::delete('messages/{id}', 'App\Http\Controllers\FrontEnd\MessageController@destroy')->name('messages.destroy');
+    Route::get('messages/call', 'App\Http\Controllers\FrontEnd\MessageController@call')->name('messages.call');
+
+
+    //Calendar
+    Route::get('calendar', 'App\Http\Controllers\FrontEnd\CalendarController@index')->name('calendar.index');
+
 
     //Courses
     Route::get('courses/detail', 'App\Http\Controllers\FrontEnd\CourseController@details')->name('courses.detail');
     Route::get('courses/search', 'App\Http\Controllers\FrontEnd\CourseController@search')->name('courses.search');
     Route::get('courses/discover', 'App\Http\Controllers\FrontEnd\CourseController@discover')->name('courses.discover');
     Route::resource('courses', 'App\Http\Controllers\FrontEnd\CourseController');
-    // Route::get('courses/{course}/show', 'App\Http\Controllers\FrontEnd\CourseController@show')->name('courses.show');
 
 
     // Study Classes
     Route::get('classes/search', 'App\Http\Controllers\FrontEnd\StudyClassController@search')->name('study-classes.search');
     Route::get('classes/discover', 'App\Http\Controllers\FrontEnd\StudyClassController@discover')->name('study-classes.discover');
+    Route::get('classes/exams', 'App\Http\Controllers\FrontEnd\StudyClassController@exams')->name('study-classes.exams');
+    Route::get('classes/exercises', 'App\Http\Controllers\FrontEnd\StudyClassController@exercises')->name('study-classes.exercises');
+    Route::get('classes/members', 'App\Http\Controllers\FrontEnd\StudyClassController@members')->name('study-classes.members');
     Route::resource('classes', 'App\Http\Controllers\FrontEnd\StudyClassController');
-    // Route::get('study-classes/{studyClass}/show', 'App\Http\Controllers\FrontEnd\StudyClassController@show')->name('study-classes.show');
 });
 
 Route::get('/admin/login', function () {

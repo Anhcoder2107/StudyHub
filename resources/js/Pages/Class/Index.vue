@@ -91,8 +91,8 @@
                                         <div class="text-sm font-semibold mb-2 text-gray-700">
                                             Chat with {{ mentor.name }}
                                         </div>
-                                        <button class="text-gray-400 hover:text-red-500"
-                                            @click="closeChat" title="Close">
+                                        <button class="text-gray-400 hover:text-red-500" @click="closeChat"
+                                            title="Close">
                                             ❌
                                         </button>
                                     </div>
@@ -246,13 +246,13 @@ const closeChat = () => {
 };
 
 const handleClickOutside = (event) => {
-  const activeBox = chatBox.value[activeChat.value];
-  if (
-    activeBox &&
-    !activeBox.contains(event.target)
-  ) {
-    closeChat();
-  }
+    const activeBox = chatBox.value[activeChat.value];
+    if (
+        activeBox &&
+        !activeBox.contains(event.target)
+    ) {
+        closeChat();
+    }
 };
 
 onMounted(() => {
@@ -265,24 +265,3 @@ onBeforeUnmount(() => {
 
 </script>
 
-
-
-<style scoped>
-.scrollbar-thin::-webkit-scrollbar {
-    width: 6px;
-}
-
-.scrollbar-thin::-webkit-scrollbar-track {
-    background: #E5E7EB;
-}
-
-.scrollbar-thin::-webkit-scrollbar-thumb {
-    background: #725DFF;
-    border-radius: 3px;
-}
-
-.scrollbar-thin {
-    scrollbar-width: thin;
-    scrollbar-color: #725DFF #E5E7EB;
-}
-</style>

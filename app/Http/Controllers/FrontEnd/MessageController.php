@@ -5,17 +5,15 @@ namespace App\Http\Controllers\FrontEnd;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
-use Illuminate\Support\Facades\Auth;
 
-
-class StudyClassController extends Controller
+class MessageController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        return Inertia::render('Class/Index');
+        return Inertia::render('Dashboard/Message');
     }
 
     /**
@@ -39,11 +37,7 @@ class StudyClassController extends Controller
      */
     public function show(string $id)
     {
-        $user = Auth::user();
-        return Inertia::render('Class/Show', [
-            'user' => $user,
-            'classId' => $id,
-        ]);
+        //
     }
 
     /**
@@ -71,26 +65,10 @@ class StudyClassController extends Controller
     }
 
     /**
-     * Exam for study classes.
+     * Handle a call request.
      */
-    public function exams()
+    public function call(Request $request)
     {
-        return Inertia::render('Class/Exam');
-    }
-
-    /**
-     * Exercises for study classes.
-     */
-    public function exercises()
-    {
-        return Inertia::render('Class/Exercise');
-    }
-
-    /**
-     * Members of the study class.
-     */
-    public function members()
-    {
-        return Inertia::render('Class/Member');
+        return Inertia::render('Dashboard/CallVideo');
     }
 }
