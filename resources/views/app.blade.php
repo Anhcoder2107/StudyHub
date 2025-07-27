@@ -15,6 +15,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Spline+Sans:wght@300..700&display=swap" rel="stylesheet">
 
+
     <script type="text/javascript">
         window.Laravel = {
             csrfToken: "{{ csrf_token() }}",
@@ -23,7 +24,7 @@
     </script>
     <!-- Scripts -->
     @routes
-    @vite(['resources/js/app.js', "resources/js/Pages/{$page['component']}.vue"])
+    @vite(['resources/js/app.js', "resources/js/Pages/{$page['component']}.vue", 'resources/css/theme.css'])
     @inertiaHead
 
 </head>
