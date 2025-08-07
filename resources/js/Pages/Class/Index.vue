@@ -9,6 +9,7 @@
                         <div v-for="classItem in joinedClasses" :key="classItem.id"
                             class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition cursor-pointer">
                             <!-- Image -->
+                            <Link :href="`/classes/${classItem.id}`" class="block">
                             <img :src="classItem.image" alt="Class Banner"
                                 class="w-full h-40 object-cover rounded-t-xl">
 
@@ -18,6 +19,7 @@
                                 <p class="text-sm text-gray-500 mb-2">👩‍🏫 Mentor: {{ classItem.mentor }}</p>
                                 <p class="text-xs text-gray-400">👥 {{ classItem.students }} students joined</p>
                             </div>
+                            </Link>
                         </div>
                     </div>
 
@@ -151,6 +153,7 @@ import AddCircleIcon from "../../../../resources/css/assets/icon/AddCircle.svg";
 import course from "../../../../resources/css/assets/image/course.jpg";
 import profile from "../../../../resources/css/assets/image/profile.jpg";
 import { ref, nextTick, onMounted, onBeforeUnmount } from 'vue';
+import { Link } from '@inertiajs/vue3'
 
 
 const showModal = ref(false);
@@ -264,4 +267,3 @@ onBeforeUnmount(() => {
 });
 
 </script>
-

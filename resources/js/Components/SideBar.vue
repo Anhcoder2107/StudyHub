@@ -5,7 +5,8 @@
             <img :src="logo" alt="Logo" class="h-8 w-8 mr-2" />
             <span>StudyHub</span>
         </div>
-        <div class=" overflow-y-auto h-[calc(100vh-4rem)] scrollbar-thin scrollbar-thumb-[#725DFF] scrollbar-track-gray-200">
+        <div
+            class=" overflow-y-auto h-[calc(100vh-4rem)] scrollbar-thin scrollbar-thumb-[#725DFF] scrollbar-track-gray-200">
             <nav class="mt-4 ml-4">
                 <div class="py-2 px-4">
                     <div class="text-gray-400 text-sm font-regular uppercase">
@@ -13,34 +14,49 @@
                     </div>
                     <ul class="space-y-2">
                         <li>
-                            <a href="#"
-                                class="block px-6 py-3 font-regular text-black hover:bg-[#F1EFFF] hover:text-[#725DFF] hover:font-semibold rounded-2xl"
-                                @mouseover="dashboardIcon = DashboardFill" @mouseleave="dashboardIcon = Dashboard">
-                                <img :src="dashboardIcon" alt="Dashboard Icon" class="inline-block mr-3" />
-                                <span class="inline-block">Dashboard</span>
-                            </a>
+                            <Link href="/dashboard" :class="[
+                                'block px-6 py-3 font-regular rounded-2xl',
+                                isActive('/dashboard')
+                                    ? 'bg-[#F1EFFF] text-[#725DFF] font-semibold'
+                                    : 'text-black hover:bg-[#F1EFFF] hover:text-[#725DFF] hover:font-semibold'
+                            ]" @mouseover="dashboardIcon = DashboardFill" @mouseleave="dashboardIcon = Dashboard">
+                            <img :src="isActive('/dashboard') || dashboardIcon === DashboardFill ? DashboardFill : Dashboard"
+                                alt="Dashboard Icon" class="inline-block mr-3" />
+                            <span class="inline-block">Dashboard</span>
+                            </Link>
                         </li>
                         <li>
-                            <a href="#"
-                                class="block px-6 py-3 font-regular text-black hover:bg-[#F1EFFF] hover:text-[#725DFF] hover:font-semibold rounded-2xl"
-                                @mouseover="calendarIcon = CalendarFill" @mouseleave="calendarIcon = Calendar">
-                                <img :src="calendarIcon" alt="Calendar Icon" class="inline-block mr-3" />
-                                <span class="inline-block">Calendar</span>
-                            </a>
+                            <Link href="/calendar" :class="[
+                                'block px-6 py-3 font-regular rounded-2xl',
+                                isActive('/calendar')
+                                    ? 'bg-[#F1EFFF] text-[#725DFF] font-semibold'
+                                    : 'text-black hover:bg-[#F1EFFF] hover:text-[#725DFF] hover:font-semibold'
+                            ]" @mouseover="calendarIcon = CalendarFill" @mouseleave="calendarIcon = Calendar">
+                            <img :src="isActive('/calendar') || calendarIcon === CalendarFill ? CalendarFill : Calendar"
+                                alt="Calendar Icon" class="inline-block mr-3" />
+                            <span class="inline-block">Calendar</span>
+                            </Link>
                         </li>
                         <li>
-                            <a href="#"
-                                class="block px-6 py-3 font-regular text-black hover:bg-[#F1EFFF] hover:text-[#725DFF] hover:font-semibold rounded-2xl"
-                                @mouseover="messageIcon = MessageFill" @mouseleave="messageIcon = Message">
-                                <img :src="messageIcon" alt="Message Icon" class="inline-block mr-3" />
-                                <span class="inline-block">Messages</span>
-                            </a>
+                            <Link href="/messages" :class="[
+                                'block px-6 py-3 font-regular rounded-2xl',
+                                isActive('/messages')
+                                    ? 'bg-[#F1EFFF] text-[#725DFF] font-semibold'
+                                    : 'text-black hover:bg-[#F1EFFF] hover:text-[#725DFF] hover:font-semibold'
+                            ]" @mouseover="messageIcon = MessageFill" @mouseleave="messageIcon = Message">
+                            <img :src="isActive('/messages') || messageIcon === MessageFill ? MessageFill : Message"
+                                alt="Message Icon" class="inline-block mr-3" />
+                            <span class="inline-block">Messages</span>
+                            </Link>
                         </li>
                         <li>
-                            <a href="#"
-                                class="block px-6 py-3 font-regular text-black hover:bg-[#F1EFFF] hover:text-[#725DFF] hover:font-semibold rounded-2xl"
-                                @mouseover="feedIcon = FeedFill" @mouseleave="feedIcon = Feed">
-                                <img :src="feedIcon" alt="Feed Icon" class="inline-block mr-3" />
+                            <a href="#" :class="[
+                                'block px-6 py-3 font-regular rounded-2xl',
+                                isActive('#')
+                                    ? 'bg-[#F1EFFF] text-[#725DFF] font-semibold'
+                                    : 'text-black hover:bg-[#F1EFFF] hover:text-[#725DFF] hover:font-semibold'
+                            ]" @mouseover="feedIcon = FeedFill" @mouseleave="feedIcon = Feed">
+                                <img :src="getIcon(FeedFill, Feed, '#')" alt="Feed Icon" class="inline-block mr-3" />
                                 <span class="inline-block">Blog</span>
                             </a>
                         </li>
@@ -52,20 +68,28 @@
                     </div>
                     <ul class="space-y-2">
                         <li>
-                            <a href="#"
-                                class="block px-6 py-3 font-regular text-black hover:bg-[#F1EFFF] hover:text-[#725DFF] hover:font-semibold rounded-2xl"
-                                @mouseover="discoverIcon = DiscoverFill" @mouseleave="discoverIcon = Discover">
-                                <img :src="discoverIcon" alt="Dashboard Icon" class="inline-block mr-3" />
-                                <span class="inline-block">Discover</span>
-                            </a>
+                            <Link href="/courses/discover" :class="[
+                                'block px-6 py-3 font-regular rounded-2xl',
+                                isActive('/courses/discover')
+                                    ? 'bg-[#F1EFFF] text-[#725DFF] font-semibold'
+                                    : 'text-black hover:bg-[#F1EFFF] hover:text-[#725DFF] hover:font-semibold'
+                            ]" @mouseover="discoverIcon = DiscoverFill" @mouseleave="discoverIcon = Discover">
+                            <img :src="isActive('/courses/discover') || discoverIcon === DiscoverFill ? DiscoverFill : Discover"
+                                alt="Dashboard Icon" class="inline-block mr-3" />
+                            <span class="inline-block">Discover</span>
+                            </Link>
                         </li>
                         <li>
-                            <a href="#"
-                                class="block px-6 py-3 font-regular text-black hover:bg-[#F1EFFF] hover:text-[#725DFF] hover:font-semibold rounded-2xl"
-                                @mouseover="noteBookIcon = NoteBookFill" @mouseleave="noteBookIcon = NoteBook">
-                                <img :src="noteBookIcon" alt="Calendar Icon" class="inline-block mr-3" />
-                                <span class="inline-block">My Courses</span>
-                            </a>
+                            <Link href="/courses" :class="[
+                                'block px-6 py-3 font-regular rounded-2xl',
+                                isActive('/courses')
+                                    ? 'bg-[#F1EFFF] text-[#725DFF] font-semibold'
+                                    : 'text-black hover:bg-[#F1EFFF] hover:text-[#725DFF] hover:font-semibold'
+                            ]" @mouseover="noteBookIcon = NoteBookFill" @mouseleave="noteBookIcon = NoteBook">
+                            <img :src="isActive('/courses') || noteBookIcon === NoteBookFill ? NoteBookFill : NoteBook"
+                                alt="Calendar Icon" class="inline-block mr-3" />
+                            <span class="inline-block">My Courses</span>
+                            </Link>
                         </li>
                     </ul>
                 </div>
@@ -75,26 +99,39 @@
                     </div>
                     <ul class="space-y-2">
                         <li>
-                            <a href="#"
-                                class="block px-6 py-3 font-regular text-black hover:bg-[#F1EFFF] hover:text-[#725DFF] hover:font-semibold rounded-2xl"
-                                @mouseover="usersGroupIcon = UsersGroupFill" @mouseleave="usersGroupIcon = UsersGroup">
-                                <img :src="usersGroupIcon" alt="Dashboard Icon" class="inline-block mr-3" />
-                                <span class="inline-block">My Class</span>
-                            </a>
+                            <Link href="/classes" :class="[
+                                'block px-6 py-3 font-regular rounded-2xl',
+                                isActive('/classes')
+                                    ? 'bg-[#F1EFFF] text-[#725DFF] font-semibold'
+                                    : 'text-black hover:bg-[#F1EFFF] hover:text-[#725DFF] hover:font-semibold'
+                            ]" @mouseover="usersGroupIcon = UsersGroupFill"
+                                @mouseleave="usersGroupIcon = UsersGroup">
+                            <img :src="isActive('/classes') || usersGroupIcon === UsersGroupFill ? UsersGroupFill : UsersGroup"
+                                alt="Dashboard Icon" class="inline-block mr-3" />
+                            <span class="inline-block">My Class</span>
+                            </Link>
                         </li>
                         <li>
-                            <a href="#"
-                                class="block px-6 py-3 font-regular text-black hover:bg-[#F1EFFF] hover:text-[#725DFF] hover:font-semibold rounded-2xl"
-                                @mouseover="bookmarkIcon = BookmarkFill" @mouseleave="bookmarkIcon = Bookmark">
-                                <img :src="bookmarkIcon" alt="Dashboard Icon" class="inline-block mr-3" />
+                            <a href="#" :class="[
+                                'block px-6 py-3 font-regular rounded-2xl',
+                                isActive('/examination')
+                                    ? 'bg-[#F1EFFF] text-[#725DFF] font-semibold'
+                                    : 'text-black hover:bg-[#F1EFFF] hover:text-[#725DFF] hover:font-semibold'
+                            ]" @mouseover="bookmarkIcon = BookmarkFill" @mouseleave="bookmarkIcon = Bookmark">
+                                <img :src="isActive('/examination') || bookmarkIcon === BookmarkFill ? BookmarkFill : Bookmark"
+                                    alt="Dashboard Icon" class="inline-block mr-3" />
                                 <span class="inline-block">Examination</span>
                             </a>
                         </li>
                         <li>
-                            <a href="#"
-                                class="block px-6 py-3 font-regular text-black hover:bg-[#F1EFFF] hover:text-[#725DFF] hover:font-semibold rounded-2xl"
-                                @mouseover="bookIcon = BookFill" @mouseleave="bookIcon = Book">
-                                <img :src="bookIcon" alt="Dashboard Icon" class="inline-block mr-3" />
+                            <a href="#" :class="[
+                                'block px-6 py-3 font-regular rounded-2xl',
+                                isActive('#')
+                                    ? 'bg-[#F1EFFF] text-[#725DFF] font-semibold'
+                                    : 'text-black hover:bg-[#F1EFFF] hover:text-[#725DFF] hover:font-semibold'
+                            ]" @mouseover="bookIcon = BookFill" @mouseleave="bookIcon = Book">
+                                <img :src="isActive('#') || bookIcon === BookFill ? BookFill : Book"
+                                    alt="Dashboard Icon" class="inline-block mr-3" />
                                 <span class="inline-block">Exercise</span>
                             </a>
                         </li>
@@ -106,20 +143,29 @@
                     </div>
                     <ul class="space-y-2">
                         <li>
-                            <a href="#"
-                                class="block px-6 py-3 font-regular text-black hover:bg-[#F1EFFF] hover:text-[#725DFF] hover:font-semibold rounded-2xl"
-                                @mouseover="infoCircleIcon = InfoCircleFill" @mouseleave="infoCircleIcon = InfoCircle">
-                                <img :src="infoCircleIcon" alt="Dashboard Icon" class="inline-block mr-3" />
-                                <span class="inline-block">Support</span>
-                            </a>
+                            <Link href="/support" :class="[
+                                'block px-6 py-3 font-regular rounded-2xl',
+                                isActive('/support')
+                                    ? 'bg-[#F1EFFF] text-[#725DFF] font-semibold'
+                                    : 'text-black hover:bg-[#F1EFFF] hover:text-[#725DFF] hover:font-semibold'
+                            ]" @mouseover="infoCircleIcon = InfoCircleFill"
+                                @mouseleave="infoCircleIcon = InfoCircle">
+                            <img :src="isActive('/support') || infoCircleIcon === InfoCircleFill ? InfoCircleFill : InfoCircle"
+                                alt="Support Icon" class="inline-block mr-3" />
+                            <span class="inline-block">Support</span>
+                            </Link>
                         </li>
                         <li>
-                            <a href="#"
-                                class="block px-6 py-3 font-regular text-black hover:bg-[#F1EFFF] hover:text-[#725DFF] hover:font-semibold rounded-2xl"
-                                @mouseover="settingIcon = SettingFill" @mouseleave="settingIcon = Setting">
-                                <img :src="settingIcon" alt="Dashboard Icon" class="inline-block mr-3" />
-                                <span class="inline-block">Setting</span>
-                            </a>
+                            <Link href="/settings" :class="[
+                                'block px-6 py-3 font-regular rounded-2xl',
+                                isActive('/settings')
+                                    ? 'bg-[#F1EFFF] text-[#725DFF] font-semibold'
+                                    : 'text-black hover:bg-[#F1EFFF] hover:text-[#725DFF] hover:font-semibold'
+                            ]" @mouseover="settingIcon = SettingFill" @mouseleave="settingIcon = Setting">
+                            <img :src="isActive('/settings') || settingIcon === SettingFill ? SettingFill : Setting"
+                                alt="Settings Icon" class="inline-block mr-3" />
+                            <span class="inline-block">Settings</span>
+                            </Link>
                         </li>
                     </ul>
                 </div>
@@ -156,6 +202,8 @@ import InfoCircle from '../../css/assets/icon/InfoCircle.svg';
 import InfoCircleFill from '../../css/assets/icon/InfoCircleFill.svg';
 
 import { ref } from 'vue';
+import { Link } from '@inertiajs/vue3';
+
 const dashboardIcon = ref(Dashboard);
 const calendarIcon = ref(Calendar);
 const messageIcon = ref(Message);
@@ -167,6 +215,17 @@ const bookIcon = ref(Book);
 const settingIcon = ref(Setting);
 const infoCircleIcon = ref(InfoCircle);
 const feedIcon = ref(Feed);
+
+import { usePage } from '@inertiajs/vue3';
+import { computed } from 'vue';
+const page = usePage();
+const currentUrl = computed(() => page.url);
+// console.log(page.url);
+const isActive = (path) => currentUrl.value === path;
+
+const getIcon = (activeIcon, inactiveIcon, path) =>
+    isActive(path) ? activeIcon : inactiveIcon;
+
 
 </script>
 

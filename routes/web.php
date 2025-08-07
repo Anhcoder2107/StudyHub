@@ -31,6 +31,10 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
+    // Settings
+    Route::get('settings', 'App\Http\Controllers\FrontEnd\SettingController@index')->name('settings.index');
+    Route::get('settings/change-password', 'App\Http\Controllers\FrontEnd\SettingController@changePassword')->name('settings.change-password');
+
     //Messages
     Route::get('messages', 'App\Http\Controllers\FrontEnd\MessageController@index')->name('messages.index');
     // Route::get('messages/create', 'App\Http\Controllers\FrontEnd\MessageController@create')->name('messages.create');

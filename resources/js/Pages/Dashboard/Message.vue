@@ -68,7 +68,7 @@
                         <transition name="slide-fade">
                             <div v-if="showSidebar"
                                 :class="showSidebar ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-full'"
-                                class="absolute right-0 top-[5rem] bottom-[7rem] w-64 bg-white p-4 z-[60] transition-all duration-300 ease-in-out transform">
+                                class="absolute right-0 top-[5rem] bottom-0 w-64 bg-white p-4 z-[60] transition-all duration-300 ease-in-out transform  ">
                                 <!-- Sidebar profile -->
                                 <div class="flex items-center flex-col gap-3 mb-4">
                                     <img :src="imageProfile" alt="Avatar" class="w-12 h-12 rounded-full mb-2" />
@@ -137,11 +137,10 @@
                             </div>
 
                             <!-- Message input and action buttons -->
-                            <div class="flex items-center gap-3">
+                            <div class="flex items-center gap-3 bg-white">
                                 <input v-model="newMessage" @keyup.enter="sendMessage" type="text"
                                     placeholder="Type a message here..." :class="[
-                                        'border rounded-full px-4 py-2 text-sm transition-all duration-500 ease-in-out transform',
-                                        showSidebar ? 'w-1/2' : 'w-full',
+                                        'border rounded-full px-4 py-2 text-sm transition-all duration-500 ease-in-out transform w-full'
                                     ]" />
                                 <div class="hover:bg-[#F1EFFF] p-2 rounded-full cursor-pointer">
                                     <Icon name="Mic" class="w-5 h-5 text-gray-500" />
@@ -149,7 +148,7 @@
                                 <div class="hover:bg-[#F1EFFF] p-2 rounded-full cursor-pointer">
                                     <div class="relative">
                                         <div @click="showEmojiPicker = !showEmojiPicker"
-                                            class="hover:bg-[#F1EFFF] p-2 rounded-full cursor-pointer">
+                                            class="hover:bg-[#F1EFFF] ">
                                             <Icon name="Smile" class="w-5 h-5 text-gray-500" />
                                         </div>
 
@@ -166,7 +165,7 @@
                                 <div class="hover:bg-[#F1EFFF] p-2 rounded-full cursor-pointer">
                                     <input ref="fileInput" type="file" class="hidden" @change="handleImageSelect"
                                         accept="image/*" multiple />
-                                    <div class="hover:bg-[#F1EFFF] p-2 rounded-full cursor-pointer"
+                                    <div class="hover:bg-[#F1EFFF] "
                                         @click="fileInput.click()">
                                         <Icon name="Paperclip" class="w-5 h-5 text-gray-500" />
                                     </div>
@@ -184,13 +183,15 @@
 </template>
 
 <script setup>
-import 'emoji-picker-element';
-import { ref, computed, watch, onMounted } from 'vue'
+
+import { ref, computed, watch, onMounted, nextTick, defineOptions } from 'vue'
 import DefaultLayout from '@/Layouts/DefaultLayout.vue';
 import ContactCard from '@/Components/Message/ContactCard.vue';
 import ChatBubble from '@/Components/Message/ChatBubble.vue';
 import Icon from '@/Components/LucideIcon.vue';
 import imageProfile from '../../../css/assets/image/profile.jpg';
+
+
 
 // --- State Management ---
 const showSidebar = ref(false); // Controls visibility of the sidebar
