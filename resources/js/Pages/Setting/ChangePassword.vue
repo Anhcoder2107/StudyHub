@@ -45,7 +45,7 @@
                         </div>
                         <div class="w-96">
                             <div class="mb-2">
-                                <div class="flex">
+                                <div class="flex ">
                                     <span
                                         class="inline-flex items-center px-3 text-sm text-gray-400 border rounded-e-0 border-gray-300 border-e-0 rounded-s-md">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18"
@@ -57,7 +57,7 @@
                                         </svg>
                                     </span>
                                     <input type="text" id="website-admin"
-                                        class="rounded-none rounded-e-lg bg-gray-50 border text-black block flex-1 min-w-0 w-full text-sm border-gray-300 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white outline-none focus:outline-none"
+                                        class="rounded-none rounded-tr-lg bg-gray-50 border text-black block flex-1 min-w-0 w-full text-sm border-gray-300 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white outline-none focus:outline-none"
                                         placeholder="***********">
                                 </div>
                             </div>

@@ -6,15 +6,14 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 
-
-class SettingController extends Controller
+class BasketController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        return Inertia::render('Setting/EditProfile');
+        return Inertia::render('Basket/Basket');
     }
 
     /**
@@ -65,41 +64,9 @@ class SettingController extends Controller
         //
     }
 
-    /**
-     * Show the form for changing the password.
-     */
-    public function changePassword()
+    //checkout
+    public function checkout()
     {
-        return Inertia::render('Setting/ChangePassword');
-    }
-
-    //notification settings
-    public function notificationSettings()
-    {
-        return Inertia::render('Setting/NotificationSetting');
-    }
-
-    //theme
-    public function themeSettings()
-    {
-        return Inertia::render('Setting/Theme');
-    }
-
-    //language
-    public function languageSettings()
-    {
-        return Inertia::render('Setting/Language');
-    }
-
-    //app integrations
-    public function appIntegrations()
-    {
-        return Inertia::render('Setting/AppIntegration');
-    }
-
-    //social media
-    public function socialMediaSettings()
-    {
-        return Inertia::render('Setting/SocialMedia');
+        return Inertia::render('Basket/Checkout');
     }
 }

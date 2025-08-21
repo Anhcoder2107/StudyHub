@@ -22,7 +22,7 @@
                             </Link>
                         </li>
                         <li>
-                            <Link href="/messages"
+                            <Link href="/settings/notification"
                                 class="block px-6 py-3 font-regular text-black hover:bg-[#F1EFFF] hover:text-[#725DFF] hover:font-semibold rounded-2xl">
                                 <Icon name="MessageSquareDot" class="inline-block mr-3" />
                                 <span class="inline-block">Notifications</span>
@@ -43,14 +43,14 @@
                     </div>
                     <ul class="space-y-2">
                         <li>
-                            <Link href="/courses/discover"
+                            <Link href="/settings/language"
                                 class="block px-6 py-3 font-regular text-black hover:bg-[#F1EFFF] hover:text-[#725DFF] hover:font-semibold rounded-2xl">
                                 <Icon name="Languages" class="inline-block mr-3" />
                                 <span class="inline-block">Language</span>
                             </Link>
                         </li>
                         <li>
-                            <Link href="/courses"
+                            <Link href="/settings/theme"
                                 class="block px-6 py-3 font-regular text-black hover:bg-[#F1EFFF] hover:text-[#725DFF] hover:font-semibold rounded-2xl">
                                 <Icon name="Palette" class="inline-block mr-3" />
                                 <span class="inline-block">Themes</span>
@@ -64,18 +64,18 @@
                     </div>
                     <ul class="space-y-2">
                         <li>
-                            <Link href="/classes"
+                            <Link href="/settings/social-media"
                                 class="block px-6 py-3 font-regular text-black hover:bg-[#F1EFFF] hover:text-[#725DFF] hover:font-semibold rounded-2xl">
                                 <Icon name="Share2" class="inline-block mr-3" />
                                 <span class="inline-block">Social Media</span>
                             </Link>
                         </li>
                         <li>
-                            <a href="#"
+                            <Link href="/settings/app-integrations"
                                 class="block px-6 py-3 font-regular text-black hover:bg-[#F1EFFF] hover:text-[#725DFF] hover:font-semibold rounded-2xl">
                                 <Icon name="Blocks" class="inline-block mr-3" />
-                                <span class="inline-block">Apps Intergration</span>
-                            </a>
+                                <span class="inline-block">Apps Integration</span>
+                            </Link>
                         </li>
                     </ul>
                 </div>

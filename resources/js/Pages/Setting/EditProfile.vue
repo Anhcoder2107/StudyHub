@@ -33,7 +33,7 @@
                 </div>
                 <div class="w-96 flex flex-col items-center">
                     <div class="relative w-24 h-24">
-                        <img :src="previewImage || '/images/profile.png'" alt="Profile Picture"
+                        <img :src="previewImage" alt="Profile Picture"
                             class="w-24 h-24 rounded-full object-cover border border-gray-300" />
                         <label for="profile_picture"
                             class="absolute bottom-0 right-0 bg-[#725DFF] hover:bg-[#5a4bd1] text-white p-1 rounded-full cursor-pointer shadow-md transition"

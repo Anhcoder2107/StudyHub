@@ -31,9 +31,18 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
+    //Basket
+    Route::get('basket', 'App\Http\Controllers\FrontEnd\BasketController@index')->name('basket.index');
+    Route::get('basket/checkout', 'App\Http\Controllers\FrontEnd\BasketController@checkout')->name('basket.checkout');
+
     // Settings
     Route::get('settings', 'App\Http\Controllers\FrontEnd\SettingController@index')->name('settings.index');
     Route::get('settings/change-password', 'App\Http\Controllers\FrontEnd\SettingController@changePassword')->name('settings.change-password');
+    Route::get('settings/notification', 'App\Http\Controllers\FrontEnd\SettingController@notificationSettings')->name('settings.notification');
+    Route::get('settings/theme', 'App\Http\Controllers\FrontEnd\SettingController@themeSettings')->name('settings.theme');
+    Route::get('settings/language', 'App\Http\Controllers\FrontEnd\SettingController@languageSettings')->name('settings.language');
+    Route::get('settings/app-integrations', 'App\Http\Controllers\FrontEnd\SettingController@appIntegrations')->name('settings.app-integrations');
+    Route::get('settings/social-media', 'App\Http\Controllers\FrontEnd\SettingController@socialMediaSettings')->name('settings.social-media');
 
     //Messages
     Route::get('messages', 'App\Http\Controllers\FrontEnd\MessageController@index')->name('messages.index');
