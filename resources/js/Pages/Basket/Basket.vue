@@ -1,6 +1,7 @@
 <template>
     <DefaultLayout>
-        <div class="bg-white rounded-xl mx-6 mt-4 h-screen overflow-y-auto h-[calc(100vh-4rem)] scrollbar-thin scrollbar-thumb-[#725DFF] scrollbar-track-gray-200">
+        <div
+            class="bg-white rounded-xl mx-6 mt-4 h-screen overflow-y-auto h-[calc(100vh-4rem)] scrollbar-thin scrollbar-thumb-[#725DFF] scrollbar-track-gray-200">
             <!-- Tiêu đề -->
 
 

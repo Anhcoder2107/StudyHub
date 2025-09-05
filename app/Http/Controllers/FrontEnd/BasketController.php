@@ -69,4 +69,22 @@ class BasketController extends Controller
     {
         return Inertia::render('Basket/Checkout');
     }
+
+    //payment
+    public function payment()
+    {
+        // return Inertia::render('Basket/Payment');
+    }
+
+    //payment success
+    public function paymentSuccess()
+    {
+        return Inertia::render('Payment/PaymentSuccess');
+    }
+
+    //payment list
+    public function paymentList()
+    {
+        return Inertia::render('Payment/PaymentList');
+    }
 }

@@ -35,6 +35,12 @@ Route::middleware('auth')->group(function () {
     Route::get('basket', 'App\Http\Controllers\FrontEnd\BasketController@index')->name('basket.index');
     Route::get('basket/checkout', 'App\Http\Controllers\FrontEnd\BasketController@checkout')->name('basket.checkout');
 
+
+    //payment
+    Route::get('payment', 'App\Http\Controllers\FrontEnd\BasketController@paymentList')->name('payment.index');
+    // Route::post('payment/process', 'App\Http\Controllers\FrontEnd\PaymentController@process')->name('payment.process');
+    Route::get('payment/success', 'App\Http\Controllers\FrontEnd\BasketController@paymentSuccess')->name('payment.success');
+
     // Settings
     Route::get('settings', 'App\Http\Controllers\FrontEnd\SettingController@index')->name('settings.index');
     Route::get('settings/change-password', 'App\Http\Controllers\FrontEnd\SettingController@changePassword')->name('settings.change-password');
